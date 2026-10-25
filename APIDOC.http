@@ -1,0 +1,77 @@
+#signupview
+###
+POST http://127.0.0.1:8000/feedback/signup/
+Content-Type: application/json
+
+{
+    "username":"user1",
+    "email":"user1@gmail.com",
+    "password":"Password@123"
+}
+
+#api call for token
+###
+POST http://127.0.0.1:8000/feedback/token/
+Content-Type: application/json
+
+{
+    "username":"user1",
+    "password":"Password@123"
+}
+
+
+
+#=====Feedback endpoints====
+#api call for list feedback
+###
+GET http://127.0.0.1:8000/feedback/feedbacks/
+Accept: application/json
+Authorization: Token af529b83e228842117800fd37bcdd844bbf12f9e
+
+#api call for create feedback
+###
+POST http://127.0.0.1:8000/feedback/feedbacks/
+Content-Type: application/json
+Authorization:Token af529b83e228842117800fd37bcdd844bbf12f9e
+
+{
+    "department": "ce",
+    "feedback_text": "The faculty members explain concepts clearly",
+    "sentiment": "positive",
+    "category": "facilities"
+}
+
+#Api call for retrieve feedback
+###
+GET http://127.0.0.1:8000/feedback/2/
+Accept: application/json
+Authorization: Token af529b83e228842117800fd37bcdd844bbf12f9e
+
+#api call for update feedback
+###
+PUT http://127.0.0.1:8000/feedback/2/
+Content-Type: application/json
+Authorization: Token af529b83e228842117800fd37bcdd844bbf12f9e
+
+{
+  "id": 2,
+  "department": "cse",
+  "feedback_text": "The faculty members explain concepts clearly, but the computer lab needs more updated systems.",
+  "sentiment": "neutral",
+  "category": "facilities",
+  "created_at": "2026-10-25T10:25:19.240253Z",
+  "student": 1
+
+}
+
+#api call for delete feedback
+###
+DELETE http://127.0.0.1:8000/feedback/3/
+Accept: application/json
+Authorization: Token af529b83e228842117800fd37bcdd844bbf12f9e
+
+#api call fpr summary
+###
+GET http://127.0.0.1:8000/feedback/summary/
+Accept: application/json
+Authorization: Token af529b83e228842117800fd37bcdd844bbf12f9e
